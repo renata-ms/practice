@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title> Django template </title>
+</head>
+<body>
+        <h1> Directory {{ dir }}</h1>
+        <table>
+        {% for dir in dir_list %}
+        <tr>
+		<td><a href="{{ dir }}"></a></td>
+	</tr>
+	{% endfor %}
+        {% for file in dir %}
+	<tr>
+                <td>{{ file.name }}</td>
+                <td>{{ file.size }}</td>
+                <td>{{ file.mtime }}</td>
+         </tr>
+        {% endfor %}
+        </table>
+</body>
+</html>
