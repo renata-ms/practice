@@ -14,7 +14,7 @@ PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'data.db',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
@@ -68,7 +68,7 @@ SECRET_KEY = 'p96(dw=s#5hhoryzsnhw6xo8mcf$9dzjv4ni3cspb*u06e6m$7'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    #'django.template.loaders.eggs.Loader',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -79,7 +79,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.i18n',
     'django.core.context_processors.tz',
-)    
+)
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -102,13 +102,12 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    #'django.contrib.sites',
+    # 'django.contrib.sites',
     'django.contrib.messages',
-    #'pages',
+    # 'pages',
     'library',
     'orders',
     'south',
@@ -116,5 +115,4 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-
 )

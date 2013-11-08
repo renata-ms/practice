@@ -11,21 +11,20 @@ import datetime
 
 
 class Author(models.Model):
-
-    first_name = models.CharField(max_length = 32)
-    last_name = models.CharField(max_length = 32)
-    email = models.EmailField(null = True)
+    first_name = models.CharField(max_length=32)
+    last_name = models.CharField(max_length=32)
+    email = models.EmailField(null=True)
 
     def __unicode__(self):
-        return u'%s %s'%(self.first_name, self.last_name)
+        return u'%s %s' % (self.first_name, self.last_name)
 
 
 class Book(models.Model):
 
-    title = models.CharField(max_length = 128)
+    title = models.CharField(max_length=128)
     authors = models.ManyToManyField(Author)
     publisher = models.ForeignKey('Publisher')
-    publication_date = models.DateField(default = datetime.datetime.now())
+    publication_date = models.DateField(default=datetime.datetime.now())
 
     def get_absolute_url(self):
         curson = connection.cursor()
@@ -34,23 +33,23 @@ class Book(models.Model):
 
     def __unicode__(self):
         return self.title
-    
+
 
 class Publisher(models.Model):
 
-    title = models.CharField(max_length = 32)
+    title = models.CharField(max_length=32)
     address = models.TextField()
-    city = models.CharField(max_length = 64)
-    country = models.CharField(max_length = 64)
-    website = models.URLField(max_length = 32)
+    city = models.CharField(max_length=64)
+    country = models.CharField(max_length=64)
+    website = models.URLField(max_length=32)
 
     def __unicode__(self):
-        return u'%s (%s, %s)'%(self.title, self.city, self.country)
+        return u'%s (%s, %s)' % (self.title, self.city, self.country)
 
 
 class BookImage(models.Model):
 
-    avatar = models.ImageField(upload_to = MEDIA_ROOT)
+    avatar = models.ImageField(upload_to=MEDIA_ROOT)
     object_id = models.PositiveIntegerField()
     fkey = models.ForeignKey(Book)
     content_type = models.ForeignKey(ContentType)
