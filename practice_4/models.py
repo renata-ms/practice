@@ -3,8 +3,8 @@ from django.db import models, connection
 # Create your models here.
 import datetime
 
-class Author(models.Model):
 
+class Author(models.Model):
 
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
@@ -13,8 +13,8 @@ class Author(models.Model):
     def __unicode__(self):
         return u'%s %s' % (self.first_name, self.last_name)
 
-class Book(models.Model):
 
+class Book(models.Model):
 
     title = models.CharField(max_length=128)
     authors = models.ManyToManyField(Author)
@@ -29,8 +29,8 @@ class Book(models.Model):
     def __unicode__(self):
         return self.title
 
-class Publisher(models.Model):
 
+class Publisher(models.Model):
 
     title = models.CharField(max_length=32)
     address = models.TextField()
