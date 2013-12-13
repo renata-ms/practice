@@ -1,0 +1,35 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Падающий квадрат</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <script> 
+    function Screen() 
+        {
+            var width, heigth; 
+            width = (window.innerWidth ? window.innerWidth : (document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.offsetWidth));
+            heigth = (window.innerHeight ? window.innerHeight : (document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.offsetHeight));
+            return {width:width, heigth:heigth};
+        }
+
+        var step = 5,
+        i = 0,
+        id = null,
+        n = Math.floor((Screen().heigth - 100) / step);
+
+    function FallingSquare() 
+        { 
+            if (i < n) {
+                var element = document.getElementById('square');
+                element.style.top = parseInt(element.style.top) + step + 'px';
+                i++;
+                id = setTimeout('FallingSquare()', 1);
+            }
+            else { clearTimeout(id); id = null; }
+        }
+  </script>
+</head>
+<body>
+  <div id="square" onclick="FallingSquare();" style="top: 0px;"></div>
+</body>
+</html>
